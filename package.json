@@ -9,7 +9,8 @@
     "test": "./node_modules/.bin/mocha",
     "test:watch": "./node_modules/.bin/mocha --watch",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
-    "commit": "commit-wizard"
+    "commit": "commit-wizard",
+    "version": "npm version patch"
   },
   "config": {
     "pre-git": {
@@ -19,6 +20,7 @@
         "npm run test"
       ],
       "pre-push": [
+        "npm run version",
         "npm publish"
       ],
       "post-commit": [],
