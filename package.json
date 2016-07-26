@@ -21,7 +21,9 @@
       "pre-push": [
         "npm publish"
       ],
-      "post-commit": [],
+      "post-commit": [
+        "npm version patch"
+      ],
       "post-checkout": [],
       "post-merge": []
     }
