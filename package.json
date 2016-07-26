@@ -18,7 +18,9 @@
         "npm run eslint",
         "npm run test"
       ],
-      "pre-push": [],
+      "pre-push": [
+        "npm publish"
+      ],
       "post-commit": [],
       "post-checkout": [],
       "post-merge": []
