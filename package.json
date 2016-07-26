@@ -16,8 +16,7 @@
       "commit-msg": "simple",
       "pre-commit": [
         "npm run eslint",
-        "npm run test",
-        "npm version patch"
+        "npm run test"
       ],
       "pre-push": [
         "npm publish"
