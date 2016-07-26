@@ -1,0 +1,54 @@
+{
+  "name": "data-structures-es6",
+  "version": "0.0.1",
+  "description": "JavaScript data structures written in es6 (es 2015)",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel ./src --out-dir dest",
+    "build:watch": "./node_modules/.bin/babel ./src --watch --out-dir dest",
+    "test": "./node_modules/.bin/mocha",
+    "test:watch": "./node_modules/.bin/mocha --watch",
+    "eslint": "./node_modules/.bin/eslint src/**/*.js",
+    "commit": "commit-wizard"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [
+        "npm run eslint",
+        "npm run test"
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasergen/data-structures-es6.git"
+  },
+  "keywords": [
+    "data-structures",
+    "stack",
+    "stackjs",
+    "es2015",
+    "es6"
+  ],
+  "author": "vasergen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasergen/data-structures-es6/issues"
+  },
+  "homepage": "https://github.com/vasergen/data-structures-es6#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^3.1.1",
+    "expect": "^1.20.2",
+    "mocha": "^2.5.3",
+    "pre-git": "^3.10.0"
+  },
+  "dependencies": {}
+}
