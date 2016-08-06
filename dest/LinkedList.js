@@ -8,16 +8,28 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Node = function Node(data) {
-  _classCallCheck(this, Node);
-
-  this.data = data;
-  this.next = null;
-};
-
 var TAIL = Symbol('tail');
 var HEAD = Symbol('head');
 var LENGTH = Symbol('length');
+var NEXT = Symbol('next');
+
+var Node = function () {
+  function Node(data) {
+    _classCallCheck(this, Node);
+
+    this.data = data;
+    this[NEXT] = null;
+  }
+
+  _createClass(Node, [{
+    key: 'next',
+    get: function get() {
+      return this[NEXT];
+    }
+  }]);
+
+  return Node;
+}();
 
 var LinkedList = exports.LinkedList = function () {
   function LinkedList() {
@@ -38,7 +50,7 @@ var LinkedList = exports.LinkedList = function () {
         this[HEAD] = node;
         this[TAIL] = node;
       } else {
-        this[TAIL].next = node;
+        this[TAIL][NEXT] = node;
         this[TAIL] = node;
       }
 
@@ -48,7 +60,9 @@ var LinkedList = exports.LinkedList = function () {
   }, {
     key: 'at',
     value: function at(position) {
-      if (position < 0 || position > this[LENGTH]) {
+      position = parseInt(position);
+
+      if (position < 0 || position >= this.length) {
         throw new Error('node with position ' + position + ' doen\'t exist');
       }
 
@@ -62,8 +76,42 @@ var LinkedList = exports.LinkedList = function () {
       return currentNode;
     }
   }, {
-    key: 'remove',
-    value: function remove(position) {}
+    key: 'removeAt',
+    value: function removeAt(position) {
+      position = parseInt(position);
+
+      if (position < 0 || position >= this.length) {
+        throw new Error('node with position ' + position + ' doen\'t exist');
+      }
+
+      //remove node from beginning
+      if (position === 0) {
+        var _node = this.at(position);
+        this[HEAD] = this.head.next;
+        this[LENGTH]--;
+        return _node;
+      }
+
+      //remove node from the end
+      if (position === this.length - 1) {
+        var _nodePrev = this.at(position - 1);
+        var _node2 = _nodePrev.next;
+
+        _nodePrev[NEXT] = null;
+        this[TAIL] = _nodePrev;
+        this[LENGTH]--;
+        return _node2;
+      }
+
+      //remove node from the middle
+      var nodePrev = this.at(position - 1);
+      var node = nodePrev.next;
+      var nodeNext = node.next;
+      nodePrev[NEXT] = nodeNext;
+      this[LENGTH]--;
+
+      return node;
+    }
   }, {
     key: 'head',
     get: function get() {

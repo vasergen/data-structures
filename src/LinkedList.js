@@ -1,15 +1,20 @@
 'use strict'
 
-class Node {
-  constructor(data) {
-    this.data = data
-    this.next = null
-  }
-}
-
 let TAIL = Symbol('tail')
 let HEAD = Symbol('head')
 let LENGTH = Symbol('length')
+let NEXT = Symbol('next')
+
+class Node {
+  constructor(data) {
+    this.data = data
+    this[NEXT] = null
+  }
+
+  get next() {
+    return this[NEXT]
+  }
+}
 
 export class LinkedList {
   constructor() {
@@ -38,7 +43,7 @@ export class LinkedList {
       this[HEAD] = node
       this[TAIL] = node
     } else {
-      this[TAIL].next = node
+      this[TAIL][NEXT] = node
       this[TAIL] = node
     }
 
@@ -47,7 +52,9 @@ export class LinkedList {
   }
 
   at(position) {
-    if(position < 0 || position > this[LENGTH]) {
+    position = parseInt(position)
+
+    if(position < 0 || position >= this.length) {
       throw new Error(`node with position ${position} doen't exist`)
     }
 
@@ -61,8 +68,39 @@ export class LinkedList {
     return currentNode
   }
 
-  remove(position) {
+  removeAt(position) {
+    position = parseInt(position)
 
+    if(position < 0 || position >= this.length) {
+      throw new Error(`node with position ${position} doen't exist`)
+    }
 
+    //remove node from beginning
+    if(position === 0) {
+      let node = this.at(position)
+      this[HEAD] = this.head.next
+      this[LENGTH]--
+      return node
+    }
+
+    //remove node from the end
+    if(position === this.length - 1) {
+      let nodePrev = this.at(position - 1)
+      let node = nodePrev.next
+
+      nodePrev[NEXT] = null
+      this[TAIL] = nodePrev
+      this[LENGTH]--
+      return node
+    }
+
+    //remove node from the middle
+    let nodePrev = this.at(position - 1)
+    let node = nodePrev.next
+    let nodeNext = node.next
+    nodePrev[NEXT] = nodeNext
+    this[LENGTH]--
+
+    return node
   }
 }

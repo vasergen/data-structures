@@ -10,25 +10,24 @@ describe('LinkedList', () => {
     list = new LinkedList()
   })
 
-  it('#push', () => {
-    expect(list.head).toBe(null)
-    expect(list.tail).toBe(null)
+  describe('#push', () => {
+    it('check push', () => {
+      list.push(1)
+      let firstNode = list.head
+      expect(firstNode).toEqual(list.head)
+      expect(firstNode).toEqual(list.tail)
+      expect(firstNode.data).toBe(1)
 
-    list.push(1)
-    let firstNode = list.head
-    expect(firstNode).toEqual(list.head)
-    expect(firstNode).toEqual(list.tail)
-    expect(firstNode.data).toBe(1)
+      list.push(2)
+      let secondNode = list.head.next
+      expect(secondNode.data).toBe(2)
+      expect(secondNode).toEqual(list.tail)
 
-    list.push(2)
-    let secondNode = list.head.next
-    expect(secondNode.data).toBe(2)
-    expect(secondNode).toEqual(list.tail)
-
-    list.push(3)
-    let thirdNode = list.head.next.next
-    expect(thirdNode).toEqual(list.tail)
-    expect(thirdNode.data).toBe(3)
+      list.push(3)
+      let thirdNode = list.head.next.next
+      expect(thirdNode).toEqual(list.tail)
+      expect(thirdNode.data).toBe(3)
+    })
   })
 
   it('#length', () => {
@@ -39,26 +38,62 @@ describe('LinkedList', () => {
     expect(list.length).toBe(2)
   })
 
-  it('#at', () => {
-    list.push(1)
-    list.push(2)
-    list.push(3)
+  describe('#at', () => {
+    it('check existing elements', () => {
+      list.push(1)
+      list.push(2)
+      list.push(3)
 
-    expect(list.at(0).data).toBe(1)
-    expect(list.at(1).data).toBe(2)
-    expect(list.at(2).data).toBe(3)
+      expect(list.at(0).data).toBe(1)
+      expect(list.at(1).data).toBe(2)
+      expect(list.at(2).data).toBe(3)
+    })
 
-    expect(() => {
-      list.at(-1)
-    }).toThrow()
+    it('position less than 0', () => {
+      list.push(1)
 
-    expect(() => {
-      list.at(10)
-    }).toThrow()
+      expect(() => {
+        list.at(-1)
+      }).toThrow()
+    })
+
+    it('position bigger than exist', () => {
+      list.push(1)      
+
+      expect(() => {
+        list.at(1)
+      }).toThrow()
+    })
   })
 
-  it('#remove', () => {
+  describe('#removeAt', () => {
+    it('remove first node', () => {
+      list.push(1)
+      list.push(2)
+      list.removeAt(0)
 
+      expect(list.head.data).toBe(2)
+      expect(list.length).toBe(1)
+    })
+
+    it('remove last node', () => {
+      list.push(1)
+      list.push(2)
+      list.removeAt(1) //second element
+
+      expect(list.tail.data).toBe(1)
+      expect(list.length).toBe(1)
+    })
+
+    it('remove node in the middle', () => {
+      list.push(1)
+      list.push(2)
+      list.push(3)
+      list.removeAt(1) //second element
+
+      expect(list.at(1).data).toBe(3)
+      expect(list.length).toBe(2)
+    })
   })
 
 })
