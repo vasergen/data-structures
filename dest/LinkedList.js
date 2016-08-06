@@ -15,13 +15,17 @@ var Node = function Node(data) {
   this.next = null;
 };
 
+var TAIL = Symbol('tail');
+var HEAD = Symbol('head');
+var LENGTH = Symbol('length');
+
 var LinkedList = exports.LinkedList = function () {
   function LinkedList() {
     _classCallCheck(this, LinkedList);
 
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
+    this[HEAD] = null;
+    this[TAIL] = null;
+    this[LENGTH] = 0;
   }
 
   _createClass(LinkedList, [{
@@ -31,15 +35,49 @@ var LinkedList = exports.LinkedList = function () {
       var currentNode = this.head;
 
       if (!currentNode) {
-        this.head = node;
-        this.tail = node;
+        this[HEAD] = node;
+        this[TAIL] = node;
       } else {
-        this.tail.next = node;
-        this.tail = node;
+        this[TAIL].next = node;
+        this[TAIL] = node;
       }
 
-      this.length++;
+      this[LENGTH]++;
       return node;
+    }
+  }, {
+    key: 'at',
+    value: function at(position) {
+      if (position < 0 || position > this[LENGTH]) {
+        throw new Error('node with position ' + position + ' doen\'t exist');
+      }
+
+      var count = 0;
+      var currentNode = this.head;
+      while (position > count) {
+        currentNode = currentNode.next;
+        count++;
+      }
+
+      return currentNode;
+    }
+  }, {
+    key: 'remove',
+    value: function remove(position) {}
+  }, {
+    key: 'head',
+    get: function get() {
+      return this[HEAD];
+    }
+  }, {
+    key: 'tail',
+    get: function get() {
+      return this[TAIL];
+    }
+  }, {
+    key: 'length',
+    get: function get() {
+      return this[LENGTH];
     }
   }]);
 

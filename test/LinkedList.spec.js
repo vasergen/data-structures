@@ -29,7 +29,36 @@ describe('LinkedList', () => {
     let thirdNode = list.head.next.next
     expect(thirdNode).toEqual(list.tail)
     expect(thirdNode.data).toBe(3)
+  })
 
+  it('#length', () => {
+    expect(list.length).toBe(0)
+
+    list.push(1)
+    list.push(2)
+    expect(list.length).toBe(2)
+  })
+
+  it('#at', () => {
+    list.push(1)
+    list.push(2)
+    list.push(3)
+
+    expect(list.at(0).data).toBe(1)
+    expect(list.at(1).data).toBe(2)
+    expect(list.at(2).data).toBe(3)
+
+    expect(() => {
+      list.at(-1)
+    }).toThrow()
+
+    expect(() => {
+      list.at(10)
+    }).toThrow()
+  })
+
+  it('#remove', () => {
 
   })
+
 })

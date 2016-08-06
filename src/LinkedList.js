@@ -7,11 +7,27 @@ class Node {
   }
 }
 
+let TAIL = Symbol('tail')
+let HEAD = Symbol('head')
+let LENGTH = Symbol('length')
+
 export class LinkedList {
   constructor() {
-    this.head = null
-    this.tail = null
-    this.length = 0
+    this[HEAD] = null
+    this[TAIL] = null
+    this[LENGTH] = 0
+  }
+
+  get head() {
+    return this[HEAD]
+  }
+
+  get tail() {
+    return this[TAIL]
+  }
+
+  get length() {
+    return this[LENGTH]
   }
 
   push(value) {
@@ -19,14 +35,34 @@ export class LinkedList {
     let currentNode = this.head
 
     if(!currentNode) {
-      this.head = node
-      this.tail = node
+      this[HEAD] = node
+      this[TAIL] = node
     } else {
-      this.tail.next = node
-      this.tail = node
+      this[TAIL].next = node
+      this[TAIL] = node
     }
 
-    this.length++
+    this[LENGTH]++
     return node
+  }
+
+  at(position) {
+    if(position < 0 || position > this[LENGTH]) {
+      throw new Error(`node with position ${position} doen't exist`)
+    }
+
+    let count = 0
+    let currentNode = this.head
+    while (position > count) {
+      currentNode = currentNode.next
+      count++
+    }
+
+    return currentNode
+  }
+
+  remove(position) {
+
+
   }
 }
