@@ -1,6 +1,6 @@
 {
   "name": "data-structures-es6",
-  "version": "0.0.27",
+  "version": "0.0.29",
   "description": "JavaScript data structures written in es6 (es 2015)",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "test:watch": "./node_modules/.bin/mocha --watch",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "commit": "commit-wizard",
-    "ver": "npm version patch --no-git-tag-version"
+    "ver": "npm version patch --no-git-tag-version && git add package.json"
   },
   "config": {
     "pre-git": {
