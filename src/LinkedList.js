@@ -4,6 +4,7 @@ let TAIL = Symbol('tail')
 let HEAD = Symbol('head')
 let LENGTH = Symbol('length')
 let NEXT = Symbol('next')
+let CURRENT = Symbol('current')
 
 class Node {
   constructor(data) {
@@ -20,6 +21,7 @@ export class LinkedList {
   constructor() {
     this[HEAD] = null
     this[TAIL] = null
+    this[CURRENT] = null
     this[LENGTH] = 0
   }
 
@@ -35,13 +37,36 @@ export class LinkedList {
     return this[LENGTH]
   }
 
+  get current() {
+    return this[CURRENT]
+  }
+
+  resetCursor() {
+    if(this.length === 0) {
+      this[CURRENT] = null
+    }
+
+    this[CURRENT] = this.head
+  }
+
+  next() {
+    if(!this.current.next) {
+      return null
+    }
+
+    let currentNode = this.current
+    this[CURRENT] = currentNode.next
+    return this.current
+  }
+
   push(value) {
     let node = new Node(value)
-    let currentNode = this.head
+    let head = this.head
 
-    if(!currentNode) {
+    if(!head) {
       this[HEAD] = node
       this[TAIL] = node
+      this[CURRENT] = node
     } else {
       this[TAIL][NEXT] = node
       this[TAIL] = node

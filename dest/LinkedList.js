@@ -12,6 +12,7 @@ var TAIL = Symbol('tail');
 var HEAD = Symbol('head');
 var LENGTH = Symbol('length');
 var NEXT = Symbol('next');
+var CURRENT = Symbol('current');
 
 var Node = function () {
   function Node(data) {
@@ -37,18 +38,40 @@ var LinkedList = exports.LinkedList = function () {
 
     this[HEAD] = null;
     this[TAIL] = null;
+    this[CURRENT] = null;
     this[LENGTH] = 0;
   }
 
   _createClass(LinkedList, [{
+    key: 'resetCursor',
+    value: function resetCursor() {
+      if (this.length === 0) {
+        this[CURRENT] = null;
+      }
+
+      this[CURRENT] = this.head;
+    }
+  }, {
+    key: 'next',
+    value: function next() {
+      if (!this.current.next) {
+        return null;
+      }
+
+      var currentNode = this.current;
+      this[CURRENT] = currentNode.next;
+      return this.current;
+    }
+  }, {
     key: 'push',
     value: function push(value) {
       var node = new Node(value);
-      var currentNode = this.head;
+      var head = this.head;
 
-      if (!currentNode) {
+      if (!head) {
         this[HEAD] = node;
         this[TAIL] = node;
+        this[CURRENT] = node;
       } else {
         this[TAIL][NEXT] = node;
         this[TAIL] = node;
@@ -126,6 +149,11 @@ var LinkedList = exports.LinkedList = function () {
     key: 'length',
     get: function get() {
       return this[LENGTH];
+    }
+  }, {
+    key: 'current',
+    get: function get() {
+      return this[CURRENT];
     }
   }]);
 

@@ -58,7 +58,7 @@ describe('LinkedList', () => {
     })
 
     it('position bigger than exist', () => {
-      list.push(1)      
+      list.push(1)
 
       expect(() => {
         list.at(1)
@@ -96,4 +96,71 @@ describe('LinkedList', () => {
     })
   })
 
+  describe('#current', () => {
+    it('should be null on empty list', () => {
+      expect(list.current).toBe(null)
+    })
+
+    it('should be first element', () => {
+      list.push(1)
+      list.push(2)
+
+      expect(list.current.data).toBe(1)
+    })
+
+    it('should be second element', () => {
+      list.push(1)
+      list.push(2)
+      list.next()
+
+      expect(list.current.data).toBe(2)
+    })
+
+    it('should be last element', () => {
+      list.push(1)
+      list.push(2)
+      list.next()
+      list.next()
+      list.next()
+
+      expect(list.current.data).toBe(2)
+    })
+  })
+
+  describe('#next', () => {
+    it('should return next element', () => {
+      list.push(1)
+      list.push(2)
+
+      let next = list.next()
+      expect(next.data).toBe(2)
+    })
+
+    it('if next element doen\'t exist return null', () => {
+      list.push(1)
+      list.push(2)
+
+      list.next()
+      let nextNext = list.next()
+      expect(nextNext).toBe(null)
+    })
+  })
+
+  describe('#resetCursor', () => {
+    it('should be null on empty list', () => {
+      list.push(1)
+      list.removeAt(0)
+      list.resetCursor()
+
+      expect(list.current).toBe(null)
+    })
+
+    it('should be first element on non empty list', () => {
+      list.push(1)
+      list.push(2)
+      list.next()
+      list.resetCursor()
+      expect(list.current.data).toBe(1)
+    })
+  })
 })
