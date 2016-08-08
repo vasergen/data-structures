@@ -1,10 +1,6 @@
 'use strict'
 
-let TAIL = Symbol('tail')
-let HEAD = Symbol('head')
-let LENGTH = Symbol('length')
 let NEXT = Symbol('next')
-let CURRENT = Symbol('current')
 
 class Node {
   constructor(data) {
@@ -16,6 +12,11 @@ class Node {
     return this[NEXT]
   }
 }
+
+let TAIL = Symbol('tail')
+let HEAD = Symbol('head')
+let LENGTH = Symbol('length')
+let CURRENT = Symbol('current')
 
 export class LinkedList {
   constructor() {

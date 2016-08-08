@@ -8,11 +8,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var TAIL = Symbol('tail');
-var HEAD = Symbol('head');
-var LENGTH = Symbol('length');
 var NEXT = Symbol('next');
-var CURRENT = Symbol('current');
 
 var Node = function () {
   function Node(data) {
@@ -31,6 +27,11 @@ var Node = function () {
 
   return Node;
 }();
+
+var TAIL = Symbol('tail');
+var HEAD = Symbol('head');
+var LENGTH = Symbol('length');
+var CURRENT = Symbol('current');
 
 var LinkedList = exports.LinkedList = function () {
   function LinkedList() {
