@@ -2,14 +2,28 @@
 
 Some data structures implemented in Javascript 2015 (es6)
 
-###Stack
-API
+###Stack API
+
+_Methods_
 - push
 - pop
 - peek
 - clear
 
-###LinkedList
+###LinkedList API
+
+_Getters_
+- head
+- tail
+- length
+- current
+
+_Methods_
+- resetCursor
+- next
+- push
+- at
+- removeAt
 
 
 
