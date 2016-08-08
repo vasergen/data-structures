@@ -47,9 +47,9 @@ var LinkedList = exports.LinkedList = function () {
     value: function resetCursor() {
       if (this.length === 0) {
         this[CURRENT] = null;
+      } else {
+        this[CURRENT] = this.head;
       }
-
-      this[CURRENT] = this.head;
     }
   }, {
     key: 'next',
@@ -109,8 +109,12 @@ var LinkedList = exports.LinkedList = function () {
 
       //remove node from beginning
       if (position === 0) {
-        var _node = this.at(position);
+        var _node = this.head;
         this[HEAD] = this.head.next;
+        if (!_node.next) {
+          //if no nodes in list
+          this[TAIL] = null;
+        }
         this[LENGTH]--;
         return _node;
       }

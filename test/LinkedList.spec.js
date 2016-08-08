@@ -1,7 +1,7 @@
 'use strict'
 
 let expect = require('expect')
-let LinkedList = require('./../dest/LinkedList.js').LinkedList
+let LinkedList = require('./../index.js').LinkedList
 
 describe('LinkedList', () => {
   let list
@@ -30,12 +30,71 @@ describe('LinkedList', () => {
     })
   })
 
-  it('#length', () => {
-    expect(list.length).toBe(0)
+  describe('#length', () => {
+    it('should be 0 on emty list', () => {
+      expect(list.length).toBe(0)
+    })
 
-    list.push(1)
-    list.push(2)
-    expect(list.length).toBe(2)
+    it('should be 0 on emty list', () => {
+      list.push(1)
+      list.push(2)
+      list.removeAt(0)
+      list.removeAt(0)
+
+      expect(list.length).toBe(0)
+    })
+
+    it('should be 2', () => {
+      list.push(1)
+      list.push(2)
+      expect(list.length).toBe(2)
+    })
+  })
+
+  describe('#head', () => {
+    it('should be null on empty list', () => {
+      expect(list.head).toBe(null)
+    })
+
+    it('should be null on empty list', () => {
+      list.push(1)
+      list.push(2)
+      list.removeAt(0)
+      list.removeAt(0)
+      expect(list.head).toBe(null)
+    })
+
+    it('should be first element', () => {
+      list.push(1)
+      list.push(2)
+      expect(list.head.data).toBe(1)
+    })
+  })
+
+  describe('#tail', () => {
+    it('should be null on emty list', () => {
+      expect(list.tail).toBe(null)
+    })
+
+    it('should be first item', () => {
+      list.push(1)
+      expect(list.tail.data).toBe(1)
+    })
+
+    it('should be last item in list', () => {
+      list.push(1)
+      list.push(2)
+      expect(list.tail.data).toBe(2)
+    })
+
+    it('should changed after removing', () => {
+      list.push(1)
+      list.push(2)
+      list.removeAt(1)
+      expect(list.tail.data).toBe(1)
+      list.removeAt(0)
+      expect(list.tail).toBe(null)
+    })
   })
 
   describe('#at', () => {

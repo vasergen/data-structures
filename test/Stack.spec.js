@@ -1,7 +1,7 @@
 'use strict'
 
 let expect = require('expect')
-let Stack = require('./../dest/Stack.js').Stack
+let Stack = require('./../index.js').Stack
 
 let isFunction = (fn) => {
     return fn instanceof Function
@@ -16,7 +16,7 @@ describe('Stack', () => {
 
     it('should be instance of Stack', () => {
         let actual = new Stack()
-        let expected = Stack;        
+        let expected = Stack;
 
         expect(actual).toBeA(expected)
     })

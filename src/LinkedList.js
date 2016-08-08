@@ -44,9 +44,9 @@ export class LinkedList {
   resetCursor() {
     if(this.length === 0) {
       this[CURRENT] = null
+    } else {
+        this[CURRENT] = this.head
     }
-
-    this[CURRENT] = this.head
   }
 
   next() {
@@ -102,8 +102,11 @@ export class LinkedList {
 
     //remove node from beginning
     if(position === 0) {
-      let node = this.at(position)
+      let node = this.head
       this[HEAD] = this.head.next
+      if(!node.next) { //if no nodes in list
+          this[TAIL] = null
+      }
       this[LENGTH]--
       return node
     }

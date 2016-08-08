@@ -1,5 +1,11 @@
 'use strict';
 
-var dataStructures = require('./dest/index.js')
+var Stack = require('./dest/Stack.js').Stack
+var LinkedList = require('./dest/LinkedList.js').LinkedList
 
-module.exports = dataStructures
+console.log('S:', Stack)
+
+module.exports = {
+  Stack: Stack,
+  LinkedList: LinkedList
+}
