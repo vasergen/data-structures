@@ -1,6 +1,6 @@
 {
   "name": "data-structures-es6",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "JavaScript data structures written in es6 (es 2015)",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "data-structures",
     "stack",
     "stackjs",
+    "linkedlist",
     "es2015",
     "es6"
   ],
