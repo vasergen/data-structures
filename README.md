@@ -2,6 +2,9 @@
 
 Some data structures implemented in Javascript 2015 (es6)
 
+### Install
+```npm install --save data-structures-es6```
+
 ###Stack API
 
 _Methods_
