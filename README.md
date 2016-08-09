@@ -17,8 +17,7 @@ _Methods_
 
 **Example**
 
-```
-	var Stack = require("data-structures-es6").Stack
+```var Stack = require("data-structures-es6").Stack
 
 	var stack = new Stack()
     
@@ -28,8 +27,7 @@ _Methods_
     
 	stack.pop()
     
-	stack.clear()
-    ```
+	stack.clear()```
 
 ###LinkedList 
 
@@ -50,8 +48,7 @@ _Methods_
 
 Example
 
-```
-var LinkedList = require("data-structures-es6").LinkedList
+```var LinkedList = require("data-structures-es6").LinkedList
 
 var list = new LinkedList()
 
@@ -63,5 +60,4 @@ list.next()
 
 var curentNode = list.current
 
-console.log(curentNode.data) //2
-```
+console.log(curentNode.data)```
