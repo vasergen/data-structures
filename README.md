@@ -28,7 +28,7 @@ _Methods_
     
 	stack.pop()
     
-	stack.clear();
+	stack.clear()
     ```
 
 ###LinkedList 
