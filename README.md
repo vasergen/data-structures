@@ -7,7 +7,7 @@ Some data structures implemented in Javascript 2015 (es6): Stack, LinkedList
 
 ###Stack 
 
-**API**
+####API
 
 _Methods_
 - push
@@ -15,7 +15,7 @@ _Methods_
 - peek
 - clear
 
-**Example**
+####Example
 
 ```javascript
 var Stack = require("data-structures-es6").Stack
@@ -33,7 +33,7 @@ stack.clear()
 
 ###LinkedList 
 
-**API**
+####API
 
 _Getters_
 - head
@@ -48,7 +48,7 @@ _Methods_
 - at
 - removeAt
 
-Example
+####Example
 
 ```javascript
 var LinkedList = require("data-structures-es6").LinkedList
