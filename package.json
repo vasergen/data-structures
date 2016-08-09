@@ -1,13 +1,13 @@
 {
   "name": "data-structures-es6",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "JavaScript data structures written in es6 (es 2015)",
   "main": "index.js",
   "scripts": {
+    "test": "./node_modules/.bin/mocha",
+    "tdd": "./node_modules/.bin/mocha --watch",
     "build": "./node_modules/.bin/babel ./src --out-dir dest",
     "build:watch": "./node_modules/.bin/babel ./src --watch --out-dir dest",
-    "test": "./node_modules/.bin/mocha",
-    "test:watch": "./node_modules/.bin/mocha --watch",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "commit": "commit-wizard",
     "ver": "npm version patch --no-git-tag-version && git add package.json"
