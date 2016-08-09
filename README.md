@@ -1,5 +1,8 @@
 ## Data structures in Javascript
 
+
+![build:?](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)
+
 Some data structures implemented in Javascript 2015 (es6): Stack, LinkedList
 
 ### Install
