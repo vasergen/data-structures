@@ -18,18 +18,18 @@ _Methods_
 **Example**
 
 ```javascript
-	var Stack = require("data-structures-es6").Stack
+var Stack = require("data-structures-es6").Stack
 
-	var stack = new Stack()
-    
-	stack.push(1)
-    
-	stack.push(2)
-    
-	stack.pop()
-    
-	stack.clear()
-    ```
+var stack = new Stack()
+
+stack.push(1)
+
+stack.push(2)
+
+stack.pop()
+
+stack.clear()
+```
 
 ###LinkedList 
 
