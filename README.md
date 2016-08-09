@@ -1,7 +1,7 @@
 ## Data structures in Javascript
 
 
-![build:?](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)
+[![Build Status](https://travis-ci.org/vasergen/data-structures-es6.svg?branch=master)](https://travis-ci.org/vasergen/data-structures-es6)
 
 Some data structures implemented in Javascript 2015 (es6): Stack, LinkedList
 
