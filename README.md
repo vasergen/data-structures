@@ -28,7 +28,7 @@ _Methods_
     
 	stack.pop()
     
-	stack.clear()
+	stack.clear();
     ```
 
 ###LinkedList 
@@ -63,5 +63,5 @@ list.next()
 
 var curentNode = list.current
 
-console.log(curentNode.data)
+console.log(curentNode.data);
 ```
