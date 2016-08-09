@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var Stack = require('./dest/Stack.js').Stack
 var LinkedList = require('./dest/LinkedList.js').LinkedList

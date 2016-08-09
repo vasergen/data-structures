@@ -1,6 +1,6 @@
 'use strict'
 
-const DATA = Symbol('data')
+let DATA = Symbol('data')
 
 export class Stack {
     constructor() {

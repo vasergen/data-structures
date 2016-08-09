@@ -1,6 +1,6 @@
 'use strict'
 
-let NEXT = Symbol('next')
+let NEXT = Symbol('nextnode')
 
 class Node {
   constructor(data) {
