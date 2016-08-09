@@ -6,6 +6,9 @@ engines:
       - javascript
   eslint:
     enabled: true
+    checks:
+      fatal:
+        enabled: false
     config:
       config: .eslintrc
   fixme:
