@@ -66,5 +66,5 @@ list.next()
 
 var curentNode = list.current
 
-console.log(curentNode.data)
+console.log(curentNode.data) //2
 ```
