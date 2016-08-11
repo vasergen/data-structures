@@ -1,5 +1,10 @@
 ## Data structures in Javascript
 
+
+[![Build Status](https://travis-ci.org/vasergen/data-structures-es6.svg?branch=master)](https://travis-ci.org/vasergen/data-structures-es6)
+[![Code Climate](https://codeclimate.com/github/vasergen/data-structures-es6/badges/gpa.svg)](https://codeclimate.com/github/vasergen/data-structures-es6)
+[![Issue Count](https://codeclimate.com/github/vasergen/data-structures-es6/badges/issue_count.svg)](https://codeclimate.com/github/vasergen/data-structures-es6)
+
 Some data structures implemented in Javascript 2015 (es6): Stack, LinkedList
 
 ### Install
@@ -63,5 +68,5 @@ list.next()
 
 var curentNode = list.current
 
-console.log(curentNode.data)
+console.log(curentNode.data) //2
 ```
