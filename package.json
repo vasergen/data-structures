@@ -1,6 +1,6 @@
 {
   "name": "data-structures-es6",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "description": "JavaScript data structures written in es6 (es 2015)",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,6 @@
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "commit": "commit-wizard",
     "ver": "npm version patch --no-git-tag-version && git add package.json"
-  },
-  "nyc": {
-    "sourceMap": false,
-    "instrument": false
   },
   "config": {
     "pre-git": {
@@ -60,5 +56,7 @@
     "nyc": "^7.1.0",
     "pre-git": "^3.10.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "coveralls": "^2.11.12"
+  }
 }
