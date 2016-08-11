@@ -153,6 +153,15 @@ describe('LinkedList', () => {
       expect(list.at(1).data).toBe(3)
       expect(list.length).toBe(2)
     })
+
+    it('remove not existed node', () => {
+      list.push(1)
+
+      expect(() => {
+          list.removeAt(1)
+      }).toThrow()
+
+    })
   })
 
   describe('#current', () => {
