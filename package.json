@@ -1,16 +1,21 @@
 {
   "name": "data-structures-es6",
-  "version": "0.0.45",
+  "version": "0.0.47",
   "description": "JavaScript data structures written in es6 (es 2015)",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
+    "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha",
     "tdd": "./node_modules/.bin/mocha --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "./node_modules/.bin/babel ./src --out-dir dest",
     "build:watch": "./node_modules/.bin/babel ./src --watch --out-dir dest",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "commit": "commit-wizard",
     "ver": "npm version patch --no-git-tag-version && git add package.json"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
   },
   "config": {
     "pre-git": {
@@ -48,9 +53,11 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.11.4",
     "babel-preset-es2015": "^6.9.0",
+    "coveralls": "^2.11.12",
     "eslint": "^3.1.1",
     "expect": "^1.20.2",
     "mocha": "^2.5.3",
+    "nyc": "^7.1.0",
     "pre-git": "^3.10.0"
   },
   "dependencies": {}
