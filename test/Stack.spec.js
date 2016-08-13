@@ -32,6 +32,23 @@ describe('Stack', () => {
       })
     })
 
+    describe('#isEmpty()', () => {
+      it('should return true', () => {
+        let actual = stack.isEmpty()
+        let expected = true
+
+        expect(actual).toBe(expected)
+      })
+
+      it('should return false', () => {
+        stack.push(1)
+        let actual = stack.isEmpty()
+        let expected = false
+
+        expect(actual).toBe(expected)
+      })
+    })
+
     describe('#push()', () => {
       it('should have push', () => {
           let actual = isFunction(stack.push)

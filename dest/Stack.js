@@ -18,6 +18,11 @@ var Stack = exports.Stack = function () {
     }
 
     _createClass(Stack, [{
+        key: 'isEmpty',
+        value: function isEmpty() {
+            return this[DATA].length === 0;
+        }
+    }, {
         key: 'push',
         value: function push(item) {
             return this[DATA].push(item);

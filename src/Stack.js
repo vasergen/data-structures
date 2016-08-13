@@ -14,6 +14,10 @@ export class Stack {
       return this[DATA][0]
     }
 
+    isEmpty() {
+      return this[DATA].length === 0
+    }
+
     push(item) {
         return this[DATA].push(item)
     }
