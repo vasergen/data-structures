@@ -12,9 +12,20 @@ var DATA = Symbol('data');
 
 var Stack = exports.Stack = function () {
   function Stack() {
+    var arr = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
     _classCallCheck(this, Stack);
 
-    this[DATA] = [];
+    if (arr instanceof Array && arr.length) {
+      this[DATA] = arr;
+      return;
+    }
+
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    this[DATA] = [].concat(arr, args);
   }
 
   _createClass(Stack, [{
@@ -48,7 +59,6 @@ var Stack = exports.Stack = function () {
       if (!this[DATA].length) {
         return undefined;
       }
-
       return this[DATA][0];
     }
   }, {
@@ -60,6 +70,26 @@ var Stack = exports.Stack = function () {
 
       var lastIndex = this[DATA].length - 1;
       return this[DATA][lastIndex];
+    }
+  }, {
+    key: 'length',
+    get: function get() {
+      return this[DATA].length;
+    }
+  }], [{
+    key: 'from',
+    value: function from() {
+      var arr = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+
+      if (arr instanceof Array && arr.length) {
+        return new Stack(arr);
+      }
+
+      for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        args[_key2 - 1] = arguments[_key2];
+      }
+
+      return new Stack([].concat(arr, args));
     }
   }]);
 

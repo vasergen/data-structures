@@ -14,6 +14,51 @@ describe('Stack', () => {
         stack = new Stack()
     })
 
+    describe('#toString()', () => {
+      it('should be empty string', () => {
+        let actual = stack.toString()
+        let expected = ''
+
+        expect(actual).toBe(expected)
+      })
+
+      it('should be empty 1,2,3', () => {
+        let stack = new Stack(1,2,3)
+        let actual = stack.toString()
+        let expected = '1,2,3'
+
+        expect(actual).toBe(expected)
+      })
+    })
+
+    describe('#length', () => {
+      it('should be 0', () => {
+        let actual = stack.length
+        let expected = 0
+
+        expect(actual).toBe(expected)
+      })
+
+      it('should be 1', () => {
+        stack.push(1)
+        let actual = stack.length
+        let expected = 1
+
+        expect(actual).toBe(expected)
+      })
+    })
+
+    describe('#from', () => {
+      it('should create a new Stack from array', () => {
+        let stack = Stack.from([1,2,3])
+
+        let actual = stack.length
+        let expected = 3
+
+        expect(actual).toBe(expected)
+      })
+    })
+
     describe('#head', () => {
       it('should return undefined if stack empty', () => {
         let actual = stack.head
