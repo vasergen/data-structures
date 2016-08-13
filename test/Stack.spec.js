@@ -14,6 +14,35 @@ describe('Stack', () => {
         stack = new Stack()
     })
 
+    describe('#constructor', () => {
+      it('should create stack from an array', () => {
+        let stack = new Stack([1,2,3])
+
+        let actual = stack.toString()
+        let expected = '1,2,3'
+
+        expect(actual).toBe(expected)
+      })
+
+      it('should create stack from parameters', () => {
+        let stack = new Stack(1,2,3)
+
+        let actual = stack.toString()
+        let expected = '1,2,3'
+
+        expect(actual).toBe(expected)
+      })
+
+      it('should create stack from one parameter', () => {
+        let stack = new Stack(2)
+
+        let actual = stack.toString()
+        let expected = '2'
+
+        expect(actual).toBe(expected)
+      })
+    })
+
     describe('#toString()', () => {
       it('should be empty string', () => {
         let actual = stack.toString()
@@ -51,6 +80,15 @@ describe('Stack', () => {
     describe('#from', () => {
       it('should create a new Stack from array', () => {
         let stack = Stack.from([1,2,3])
+
+        let actual = stack.length
+        let expected = 3
+
+        expect(actual).toBe(expected)
+      })
+
+      it('should create a new Stack from 1,2,3', () => {
+        let stack = Stack.from(1,2,3)
 
         let actual = stack.length
         let expected = 3
