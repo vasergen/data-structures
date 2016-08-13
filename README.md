@@ -9,17 +9,23 @@
 Some data structures implemented in Javascript 2015 (es6): Stack, LinkedList
 
 ### Install
-```npm install --save data-structures-es6```
+``npm install --save data-structures-es6``
 
-###Stack 
+###Stack
 
 ####API
+
+_Getters_
+- head
+- last
+- length
 
 _Methods_
 - push
 - pop
-- peek
 - clear
+- isEmpty
+- toString
 
 ####Example
 
@@ -37,7 +43,7 @@ stack.pop()
 stack.clear()
 ```
 
-###LinkedList 
+###LinkedList
 
 ####API
 
