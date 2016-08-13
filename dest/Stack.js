@@ -42,6 +42,13 @@ var Stack = exports.Stack = function () {
         value: function clear() {
             this[DATA] = [];
         }
+    }, {
+        key: 'head',
+        get: function get() {
+            if (!this[DATA].length) return undefined;
+
+            return this[DATA][0];
+        }
     }]);
 
     return Stack;

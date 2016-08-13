@@ -7,6 +7,13 @@ export class Stack {
         this[DATA] = []
     }
 
+    get head() {
+      if(!this[DATA].length)
+        return undefined
+
+      return this[DATA][0]
+    }
+
     push(item) {
         return this[DATA].push(item)
     }
