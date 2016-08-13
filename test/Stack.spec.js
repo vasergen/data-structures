@@ -81,27 +81,19 @@ describe('Stack', () => {
       })
     })
 
-    describe('#peek()', () => {
-      it('should have peek method', () => {
-          let actual = isFunction(stack.peek)
-          let expected = true
-
-          expect(actual).toBe(expected)
-      })
-
+    describe('#last', () => {
       it('should peek last element', () => {
           stack.push(1)
           stack.push(2)
 
-          stack.peek()
-          let actual = stack.peek()
+          let actual = stack.last
           let expected = 2
 
           expect(actual).toBe(expected)
       })
 
       it('should return undefined on empty stack', () => {
-          let actual = stack.peek()
+          let actual = stack.last
           let expected = undefined
 
           expect(actual).toBe(expected)
@@ -119,10 +111,9 @@ describe('Stack', () => {
       it('should clear stack', () => {
           stack.push(1)
           stack.push(2)
-
           stack.clear()
 
-          let actual = stack.peek()
+          let actual = stack.last
           let expected = undefined
 
           expect(actual).toBe(expected)

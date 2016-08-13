@@ -8,11 +8,21 @@ export class Stack {
     }
 
     get head() {
-      if(!this[DATA].length)
+      if(!this[DATA].length) {
         return undefined
+      }
 
       return this[DATA][0]
     }
+
+    get last() {
+      if(!this[DATA].length) {
+        return undefined
+      }
+
+      let lastIndex = this[DATA].length - 1
+      return this[DATA][lastIndex]
+    }    
 
     isEmpty() {
       return this[DATA].length === 0
@@ -26,16 +36,11 @@ export class Stack {
         return this[DATA].pop()
     }
 
-    peek() {
-        let lastIndex = this[DATA].length - 1
-        if(lastIndex >= 0) {
-            return this[DATA][lastIndex]
-        }
-
-        return undefined
-    }
-
     clear() {
         this[DATA] = []
+    }
+
+    toString() {
+      return this[DATA].toString()
     }
 }
