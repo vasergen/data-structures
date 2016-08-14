@@ -11,6 +11,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var DATA = Symbol('data');
 
 var Stack = exports.Stack = function () {
+  /**
+   * Create the stack from given parameters. If first parameter is an array
+   * than create stack from this array. Otherwise create stack from all
+   * parameters.
+  */
   function Stack() {
     var arr = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
 
@@ -28,8 +33,22 @@ var Stack = exports.Stack = function () {
     this[DATA] = [].concat(arr, args);
   }
 
+  /**
+   * Create the stack from given parameters. Two examples below are equivalent
+   * expample 1:
+   * 	let stack1 = Stack.from([1,2,3])
+   * example 2:
+   *  let stack2 = Stack.from(1,2,3)
+   */
+
+
   _createClass(Stack, [{
     key: 'isEmpty',
+
+
+    /**
+     * Checks is the stack is empty
+    */
     value: function isEmpty() {
       return this[DATA].length === 0;
     }
@@ -69,6 +88,11 @@ var Stack = exports.Stack = function () {
     value: function clear() {
       this[DATA] = [];
     }
+
+    /**
+     * Convert the staack to a string 
+     */
+
   }, {
     key: 'toString',
     value: function toString() {
@@ -76,12 +100,22 @@ var Stack = exports.Stack = function () {
     }
   }, {
     key: 'head',
+
+
+    /**
+     * Return the first element in the stack
+     */
     get: function get() {
       if (!this[DATA].length) {
         return undefined;
       }
       return this[DATA][0];
     }
+
+    /**
+     * Return the last element in the stack
+     */
+
   }, {
     key: 'last',
     get: function get() {
@@ -92,6 +126,11 @@ var Stack = exports.Stack = function () {
       var lastIndex = this[DATA].length - 1;
       return this[DATA][lastIndex];
     }
+
+    /**
+     * Return the number of elements in the stack
+     */
+
   }, {
     key: 'length',
     get: function get() {
@@ -100,17 +139,7 @@ var Stack = exports.Stack = function () {
   }], [{
     key: 'from',
     value: function from() {
-      var arr = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
-
-      if (arr instanceof Array && arr.length) {
-        return new Stack(arr);
-      }
-
-      for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-        args[_key2 - 1] = arguments[_key2];
-      }
-
-      return new Stack([].concat(arr, args));
+      return new (Function.prototype.bind.apply(Stack, [null].concat(Array.prototype.slice.call(arguments))))();
     }
   }]);
 
