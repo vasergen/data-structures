@@ -146,6 +146,13 @@ describe('Stack', () => {
 
         expect(actual).toBe(expected)
       })
+
+      it('should return stack length if no arguments', () => {
+        let actual = stack.push()
+        let expected = 0
+
+        expect(actual).toBe(expected)
+      })
     })
 
     describe('#pop()', () => {
