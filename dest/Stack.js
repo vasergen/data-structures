@@ -33,16 +33,37 @@ var Stack = exports.Stack = function () {
     value: function isEmpty() {
       return this[DATA].length === 0;
     }
+
+    /**
+     * Push one or more elements to the stack
+     */
+
   }, {
     key: 'push',
-    value: function push(item) {
-      return this[DATA].push(item);
+    value: function push() {
+      var _DATA;
+
+      if (!arguments.length) {
+        return this[DATA].length;
+      }
+
+      return (_DATA = this[DATA]).push.apply(_DATA, arguments);
     }
+
+    /**
+     * Removes the top element from the stack and return it
+     */
+
   }, {
     key: 'pop',
     value: function pop() {
       return this[DATA].pop();
     }
+
+    /**
+     * Removes all elements from the stack
+     */
+
   }, {
     key: 'clear',
     value: function clear() {

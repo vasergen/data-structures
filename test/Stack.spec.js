@@ -133,11 +133,18 @@ describe('Stack', () => {
     })
 
     describe('#push()', () => {
-      it('should have push', () => {
-          let actual = isFunction(stack.push)
-          let expected = true
+      it('should return stack length', () => {
+         let actual = stack.push(0)
+         let expected = 1
 
-          expect(actual).toBe(expected)
+         expect(actual).toBe(expected)
+      })
+
+      it('should push few elements to the stack', () => {
+        let actual = stack.push(0,1,2)
+        let expected = 3
+
+        expect(actual).toBe(expected)
       })
     })
 

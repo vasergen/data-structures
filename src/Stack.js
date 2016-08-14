@@ -43,14 +43,27 @@ export class Stack {
       return this[DATA].length === 0
     }
 
-    push(item) {
-        return this[DATA].push(item)
+    /**
+     * Push one or more elements to the stack
+     */
+    push(...args) {
+      if(!args.length) {
+        return this[DATA].length
+      }
+
+      return this[DATA].push(...args)
     }
 
+    /**
+     * Removes the top element from the stack and return it
+     */
     pop() {
         return this[DATA].pop()
     }
 
+    /**
+     * Removes all elements from the stack
+     */
     clear() {
         this[DATA] = []
     }
