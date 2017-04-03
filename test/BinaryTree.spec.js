@@ -62,9 +62,18 @@ describe('BinaryTree', () => {
 
     describe('#contains', () => {
         it('should return true if tree contain element', () => {
-            tree.add(12)
-            const actual = tree.contains(12)
+            tree.add(1)
+            tree.add(2)
+            tree.add(3)
+            tree.add(4)
+            const actual = tree.contains(4)
             const expected = true
+            expect(actual).toBe(expected)
+        })
+
+        it('should return false if no root', () => {
+            const actual = tree.contains(12)
+            const expected = false
             expect(actual).toBe(expected)
         })
 
@@ -77,6 +86,13 @@ describe('BinaryTree', () => {
     })
 
     describe('#toArray', () => {
+        it('should return empty array if no root', () => {
+            const actual = tree.toArray()
+            const expected = []
+
+            expect(actual).toEqual(expected)
+        })
+
         it('should return tree items in correct order as array', () => {
             tree.add(1)
             tree.add(3)
