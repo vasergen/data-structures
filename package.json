@@ -1,6 +1,6 @@
 {
-  "name": "data-structures-es6",
-  "version": "0.1.8",
+  "name": "data-structures",
+  "version": "0.1.12",
   "description": "JavaScript data structures written in es6 (es 2015)",
   "main": "index.js",
   "scripts": {
