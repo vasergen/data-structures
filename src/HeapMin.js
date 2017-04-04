@@ -53,10 +53,10 @@ export class HeapMin {
         const chindIndex1 = HeapMin._getChildrenIndex1(arr.length, curIndex)
         const chindIndex2 = HeapMin._getChildrenIndex2(arr.length, curIndex)
 
-        console.log('!!!!!!!!!!!here!', curIndex, chindIndex1, chindIndex2, arr);
+        console.log('!!!!!!!!!!!here!', curIndex, chindIndex1, chindIndex2, arr)
 
         if(chindIndex1 === -1) {        // no children
-            return arr;
+            return arr
         }
 
         if(chindIndex2 === -1) {        // one child
@@ -91,6 +91,6 @@ export class HeapMin {
         this.data.unshift(this.data.pop())
         HeapMin._bubleDown(this.data, 0)
 
-        return result;
+        return result
     }
 }
